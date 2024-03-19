@@ -26,9 +26,10 @@
           <div class="row align-items-center">
 
             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-              <form action="" class="site-block-top-search">
+              <form action="" class="site-block-top-search" method="post">
                 <span class="icon icon-search2"></span>
-                <input type="text" class="form-control border-0" placeholder="Search">
+                <input type="text" name="kyw" class="border-0" placeholder="Search">
+                <button type="submit" name="btnsearch" style="outline: none;border: none;background-color: #7971EA;color: #fff;padding: 5px 10px;border-radius: 3px;">Search</button>
               </form>
             </div>
 
@@ -68,9 +69,9 @@
                 <li><a href="#">Menu Three</a></li>
               </ul>
             </li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.php?page=product">Shop</a></li>
+            <li><a href="index.php?page=about">About</a></li>
+            <li><a href="index.php?page=contact">Contact</a></li>
           </ul>
         </div>
       </nav>
