@@ -36,8 +36,9 @@ foreach ($dssp as $item) {
 $html_category="";
 foreach ($category as $item) {
   extract($item);
+  $linkcategory="index.php?page=productcategory&idcat=".$id;
   $html_category.='<div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
-                    <a class="block-2-item" href="#">
+                    <a class="block-2-item" href="'.$linkcategory.'">
                       <figure class="image">
                         <img src="uploads/'.$anh_danh_muc.'" alt="" class="img-fluid">
                       </figure>

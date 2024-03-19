@@ -7,8 +7,14 @@ require_once "model/category.php";
 
 if(isset($_GET['page'])){
     switch ($_GET['page']) {
-        case 'value':
-            # code...
+        case 'productcategory':
+            if(isset($_GET['idcat'])){
+                $idcat=$_GET['idcat'];
+            }else{
+                $idcat=0;
+            }
+            $spdm=product_category($idcat);
+            include_once 'view/productcategory.php';
             break;
         
         default:
