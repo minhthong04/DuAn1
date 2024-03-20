@@ -34,14 +34,14 @@ if(isset($_GET['page'])){
         
         default:
             $dssp_view=product_view(10);
-            $dssp=product_all_limit(0,10);
+            $dssp=product_all_limit(10,0);
             $category=category_all();
             include_once 'view/home.php';
             break;
     }
 }else{
     $dssp_view=product_view(10);
-    $dssp=product_all_limit(0,10);
+    $dssp=product_all_limit(10,0);
     $category=category_all();
     include_once 'view/home.php';
 }

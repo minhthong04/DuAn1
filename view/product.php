@@ -19,69 +19,76 @@ foreach ($productall as $item){
 <?php include_once "header.php";?>
 
 <div class="bg-light py-3">
-      <div class="container">
+    <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Shop</strong></div>
+            <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong
+                    class="text-black">Shop</strong></div>
         </div>
-      </div>
     </div>
+</div>
 
-    <div class="site-section">
-      <div class="container">
+<div class="site-section">
+    <div class="container">
 
         <div class="row mb-5">
-          <div class="col-md-9 order-2">
+            <div class="col-md-9 order-2">
 
-            <div class="row">
-              <div class="col-md-12 mb-5">
-                <div class="float-md-left mb-4"><h2 class="text-black h5">Shop All</h2></div>
-                <div class="d-flex" style="">
-                  <div class="dropdown mr-1 ml-md-auto">
-                    
-                  </div>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuReference" data-toggle="dropdown">Reference</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-                      <a class="dropdown-item" href="#">Relevance</a>
-                      <a class="dropdown-item" href="#">Name, A to Z</a>
-                      <a class="dropdown-item" href="#">Name, Z to A</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Price, low to high</a>
-                      <a class="dropdown-item" href="#">Price, high to low</a>
+                <div class="row">
+                    <div class="col-md-12 mb-5">
+                        <div class="float-md-left mb-4">
+                            <h2 class="text-black h5">Shop All</h2>
+                        </div>
+                        <div class="d-flex" style="">
+                            <div class="dropdown mr-1 ml-md-auto">
+
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-secondary btn-sm dropdown-toggle"
+                                    id="dropdownMenuReference" data-toggle="dropdown">Reference</button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+                                    <a class="dropdown-item" href="#">Relevance</a>
+                                    <a class="dropdown-item" href="#">Name, A to Z</a>
+                                    <a class="dropdown-item" href="#">Name, Z to A</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Price, low to high</a>
+                                    <a class="dropdown-item" href="#">Price, high to low</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="row mb-5">
+                <div class="row mb-5">
 
-            <?=$html_showproductall;?>
+                    <?=$html_showproductall;?>
 
 
-            </div>
-            <div class="row" data-aos="fade-up">
-              <div class="col-md-12 text-center">
-                <div class="site-block-27">
-                  <ul>
-                    <?=phantrang($datapro,$trang);?>
-                  </ul>
                 </div>
-              </div>
+                <div class="row" data-aos="fade-up">
+                    <div class="col-md-12 text-center">
+                        <div class="site-block-27">
+                            <ul>
+                                <?=phantrang($datapro,$trang);?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
 
-          <div class="col-md-3 order-1 mb-5 mb-md-0">
-            <div class="border p-4 rounded mb-4">
-              <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
-              <ul class="list-unstyled mb-0">
-                <li class="mb-1"><a href="#" class="d-flex"><span>Men</span> <span class="text-black ml-auto">(2,220)</span></a></li>
-                <li class="mb-1"><a href="#" class="d-flex"><span>Women</span> <span class="text-black ml-auto">(2,550)</span></a></li>
-                <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(2,124)</span></a></li>
-              </ul>
+            <div class="col-md-3 order-1 mb-5 mb-md-0">
+                <div class="border p-4 rounded mb-4">
+                    <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-1"><a href="#" class="d-flex"><span>Men</span> <span
+                                    class="text-black ml-auto">(2,220)</span></a></li>
+                        <li class="mb-1"><a href="#" class="d-flex"><span>Women</span> <span
+                                    class="text-black ml-auto">(2,550)</span></a></li>
+                        <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span
+                                    class="text-black ml-auto">(2,124)</span></a></li>
+                    </ul>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
+</div>
 
 <?php include_once "footer.php";?>

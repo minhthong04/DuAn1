@@ -21,15 +21,15 @@ foreach ($spdm as $item) {
 <?php include_once "header.php";?>
 
 <?php
-   if(is_array($spdm)){
-      extract($spdm);
-   }
+if(is_array($spdm)){
+    extract($spdm);
+}
 ?>
 <div class="site-section block-3 site-blocks-2 bg-light">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-7 site-section-heading text-center pt-4">
-                <h2>Products of 
+                <h2>Products of
                     <?php 
                         if($ma_danh_muc == 1){
                             echo "Men";
