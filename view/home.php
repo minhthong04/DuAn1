@@ -11,9 +11,17 @@ foreach ($dssp_view as $item) {
                         <h3><a href="#">'.$ten_san_pham.'</a></h3>
                         <p class="mb-0">'.$luot_xem.' views</p>
                         <p class="text-primary font-weight-bold">'.number_format($gia_san_pham,0,",",".").'<sup>đ</sup></p>
-                      </div>
+                        <form action="index.php?page=addtocarthome" method="post">
+                            <input type="submit" value="Add to cart" name="add_to_cart" style="outline: none;border: none;background-color: #7971EA;color: #fff;padding: 5px 10px;border-radius: 3px;cursor: pointer;">
+                            <input type="hidden" name="soluong" value="1">
+                            <input type="hidden" name="id" value="'.$id.'">
+                            <input type="hidden" name="ten_san_pham" value="'.$ten_san_pham.'">
+                            <input type="hidden" name="hinh_san_pham" value="'.$hinh_san_pham.'">
+                            <input type="hidden" name="gia_san_pham" value="'.$gia_san_pham.'">
+                        </form>
+                        </div>
                     </div>
-                  </div>';
+                  </div>';     
 }
 
 $html_dssp="";

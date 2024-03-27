@@ -17,7 +17,6 @@ foreach ($spdm as $item) {
 }
 ?>
 
-
 <?php include_once "header.php";?>
 
 <?php

@@ -1,3 +1,20 @@
+<?php
+if(isset($_SESSION['user']['giohang'])){
+    $countgiohang=count($_SESSION["user"]["giohang"]);
+}else{
+    $countgiohang=0;
+}
+
+if(isset($_SESSION['user'])){
+    extract($_SESSION['user']);
+    $html_account='<li><a href="index.php?page=info"><span class="icon icon-person"></span></a></li>
+    <li><a href="index.php?page=loginlogout">Log out</a></li>';
+ }else{
+    $html_account='<li><a href="index.php?page=login">Log in</a></li>
+                    <li><a href="index.php?page=signup">Sign up</a></li>';
+ }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +31,7 @@
     <link rel="stylesheet" href="view/layout/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="view/layout/css/aos.css">
     <link rel="stylesheet" href="view/layout/css/style.css">
+    <link rel="stylesheet" href="view/layout/css/login.css">
 </head>
 
 <body>
@@ -27,25 +45,25 @@
                                 <span class="icon icon-search2"></span>
                                 <input type="text" name="kyw" class="border-0" placeholder="Search">
                                 <button type="submit" name="btnsearch"
-                                    style="outline: none;border: none;background-color: #7971EA;color: #fff;padding: 5px 10px;border-radius: 3px;">Search</button>
+                                    style="outline: none;border: none;background-color: #7971EA;color: #fff;padding: 5px 10px;border-radius: 3px;cursor: pointer;">Search</button>
                             </form>
                         </div>
                         <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
                             <div class="site-logo">
-                                <a href="index.html" class="js-logo-clone">Lopie</a>
+                                <a href="index.php" class="js-logo-clone">Lopie</a>
                             </div>
                         </div>
                         <div class="col-6 col-md-4 order-3 order-md-3 text-right">
                             <div class="site-top-icons">
                                 <ul>
-                                    <li><a href="#"><span class="icon icon-person"></span></a></li>
                                     <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                                     <li>
-                                        <a href="cart.html" class="site-cart">
+                                        <a href="index.php?page=viewcart" class="site-cart">
                                             <span class="icon icon-shopping_cart"></span>
-                                            <span class="count">2</span>
+                                            <span class="count"><?=$countgiohang;?></span>
                                         </a>
                                     </li>
+                                    <?=$html_account;?>
                                     <li class="d-inline-block d-md-none ml-md-0"><a href="#"
                                             class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a>
                                     </li>
@@ -59,7 +77,7 @@
                 <div class="container">
                     <ul class="site-menu js-clone-nav d-none d-md-block">
                         <li class="has-children active">
-                            <a href="index.html">Home</a>
+                            <a href="index.php">Home</a>
                             <ul class="dropdown">
                                 <li><a href="#">Menu One</a></li>
                                 <li><a href="#">Menu Two</a></li>

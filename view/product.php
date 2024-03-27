@@ -2,17 +2,32 @@
 $html_showproductall="";
 foreach ($productall as $item){
     extract($item);
-    $html_showproductall.='<div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
-                                <a class="block-2-item" href="#">
+    $html_showproductall.='<div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200" style="padding-top: 30px;">
+                                <a class="block-2-item" href="index.php?page=productdetail&id='.$id.'">
                                 <figure class="image">
                                     <img src="uploads/'.$hinh_san_pham.'" alt="" class="img-fluid">
                                 </figure>
                                 <div class="text">
                                     <span class="text-uppercase" style="font-weight: 400;">'.number_format($gia_san_pham,0,",",".").'<sup>đ</sup></span>
-                                    <h3 style="font-size: 1.3rem;">'.$ten_san_pham.'</h3> '.$id.'
+                                    <h3 style="font-size: 1.3rem;">'.$ten_san_pham.'</h3>
+                                    <form action="index.php?page=addtocartproduct" method="post">
+                                        <input type="submit" value="Add to cart" name="add_to_cart" style="outline: none;border: none;background-color: #7971EA;color: #fff;padding: 5px 10px;border-radius: 3px;cursor: pointer;">
+                                        <input type="hidden" name="soluong" value="1">
+                                        <input type="hidden" name="id" value="'.$id.'">
+                                        <input type="hidden" name="ten_san_pham" value="'.$ten_san_pham.'">
+                                        <input type="hidden" name="hinh_san_pham" value="'.$hinh_san_pham.'">
+                                        <input type="hidden" name="gia_san_pham" value="'.$gia_san_pham.'">
+                                    </form>
                                 </div>
                                 </a>
                             </div>';
+}
+
+$html_categoryinproduct="";
+foreach ($category as $item) {
+  extract($item);
+  $link = 'index.php?page=product&trang='.$trang.'&idcat='.$id.'&orderby='.$orderby;
+  $html_categoryinproduct.='<li class="mb-1"><a href="'.$link.'" class="d-flex"><span>'.$ten_danh_muc.'</span></a></li>';
 }
 ?>
 
@@ -21,7 +36,7 @@ foreach ($productall as $item){
 <div class="bg-light py-3">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong
+            <div class="col-md-12 mb-0"><a href="index.php">Home</a> <span class="mx-2 mb-0">/</span> <strong
                     class="text-black">Shop</strong></div>
         </div>
     </div>
@@ -43,16 +58,13 @@ foreach ($productall as $item){
 
                             </div>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-secondary btn-sm dropdown-toggle"
-                                    id="dropdownMenuReference" data-toggle="dropdown">Reference</button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-                                    <a class="dropdown-item" href="#">Relevance</a>
-                                    <a class="dropdown-item" href="#">Name, A to Z</a>
-                                    <a class="dropdown-item" href="#">Name, Z to A</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Price, low to high</a>
-                                    <a class="dropdown-item" href="#">Price, high to low</a>
-                                </div>
+                                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle"
+                                        id="dropdownMenuReference" data-toggle="dropdown">Reference</button>
+                                        <div class="dropdown-menu" name="filter" aria-labelledby="dropdownMenuReference">
+                                            <a class="dropdown-item" href="index.php?page=product">Relevance</a>
+                                            <a class="dropdown-item" href="index.php?page=product&trang=<?=$trang?>&idcat=<?=$idcat?>&orderby=ASCPRICE">Price, low to high</a>
+                                            <a class="dropdown-item" href="index.php?page=product&trang=<?=$trang?>&idcat=<?=$idcat?>&orderby=DESCPRICE">Price, high to low</a>
+                                        </div>
                             </div>
                         </div>
                     </div>
@@ -61,13 +73,12 @@ foreach ($productall as $item){
 
                     <?=$html_showproductall;?>
 
-
                 </div>
                 <div class="row" data-aos="fade-up">
                     <div class="col-md-12 text-center">
                         <div class="site-block-27">
                             <ul>
-                                <?=phantrang($datapro,$trang);?>
+                                <?=$phantrang;?>
                             </ul>
                         </div>
                     </div>
@@ -78,12 +89,7 @@ foreach ($productall as $item){
                 <div class="border p-4 rounded mb-4">
                     <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
                     <ul class="list-unstyled mb-0">
-                        <li class="mb-1"><a href="#" class="d-flex"><span>Men</span> <span
-                                    class="text-black ml-auto">(2,220)</span></a></li>
-                        <li class="mb-1"><a href="#" class="d-flex"><span>Women</span> <span
-                                    class="text-black ml-auto">(2,550)</span></a></li>
-                        <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span
-                                    class="text-black ml-auto">(2,124)</span></a></li>
+                        <?=$html_categoryinproduct;?>
                     </ul>
                 </div>
             </div>
