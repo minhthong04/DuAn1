@@ -42,9 +42,27 @@ $i++;
 } else {
     // Hiển thị thông báo giỏ hàng rỗng
     $thongbaocart = "<tr>
-                          <td colspan='6' style='font-size: 30px;font-weight: bold;color: #7971ea;'>Giỏ hàng rỗng !!!</td>
+                          <td colspan='6' style='font-size: 30px;font-weight: bold;color: #7971ea;'>Giỏ hàng trống !!!</td>
                       </tr>";
 }
+
+
+$html_viewcarttocheckout='';
+if(!empty($_SESSION['user']['giohang'])){
+    $html_viewcarttocheckout='<a href="index.php?page=checkout">
+                                <div class="col-md-12">
+                                    <button class="btn btn-primary btn-lg py-3 btn-block">Proceed To Checkout</button>
+                                </div>
+                            </a>';
+}else{
+    $html_viewcarttocheckout='<a href="#">
+                                <div class="col-md-12">
+                                    <button class="btn btn-primary btn-lg py-3 btn-block">Proceed To Checkout</button>
+                                </div>
+                            </a>
+                            <p style="color: red;font-weight: bold;font-size: 12px;">Bạn phải mua ít nhất 1 sản phẩm để có thể thanh toán</p>';
+}
+
 ?>
 
 
@@ -91,7 +109,7 @@ $i++;
                         <button class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</button>
                     </div>
                 </div>
-            
+
             </div>
             <div class="col-md-6 pl-5">
                 <div class="row justify-content-end">
@@ -119,11 +137,7 @@ $i++;
                         </div>
 
                         <div class="row">
-                            <a href="index.php?page=checkout">
-                                <div class="col-md-12">
-                                    <button class="btn btn-primary btn-lg py-3 btn-block">Proceed To Checkout</button>
-                                </div>
-                            </a>
+                                    <?=$html_viewcarttocheckout?>
                         </div>
                     </div>
                 </div>

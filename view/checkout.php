@@ -13,6 +13,16 @@ foreach ($_SESSION['user']['giohang'] as $item) {
 }
 if(isset($_SESSION['user'])){
 }
+
+// Kiểm tra xem dữ liệu trả về từ VNPAY đã được gửi chưa
+if (isset($_GET['code']) && isset($_GET['message']) && isset($_GET['data'])) {
+    // Xử lý dữ liệu trả về từ VNPAY ở đây
+    // Ví dụ: Lưu dữ liệu vào cơ sở dữ liệu, kiểm tra tính hợp lệ của giao dịch, v.v.
+
+    // Sau khi xử lý xong, chuyển hướng người dùng đến trang cảm ơn
+    header('Location: index.php?page=thankyou');
+    exit();
+}
 ?>
 
 <div class="bg-light py-3">
@@ -24,14 +34,14 @@ if(isset($_SESSION['user'])){
         </div>
     </div>
 </div>
-
-<div class="site-section">
+<div class=" site-section">
     <div class="container">
         <div class="row">
             <div class="col-md-6 mb-5 mb-md-0">
-                <h2 class="h3 mb-3 text-black">Billing Details</h2>
-                <div class="p-3 p-lg-5 border">
-                    <form action="" method="post">
+                <form action="index.php?page=checkout" method="post" enctype="multipart/form-data">
+                    <h2 class=" h3 mb-3 text-black">Billing Details</h2>
+                    <div class="p-3 p-lg-5 border">
+
                         <div class="form-group row">
                             <div class="col-md-12">
                                 <label for="c_companyname" class="text-black">First Name</label>
@@ -63,25 +73,25 @@ if(isset($_SESSION['user'])){
                                     value="<?=$_SESSION['user']['so_dien_thoai']?>">
                             </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
             </div>
             <div class="col-md-6">
                 <div class="row mb-5">
                     <div class="col-md-12">
                         <h2 class="h3 mb-3 text-black">Coupon Code</h2>
                         <div class="p-3 p-lg-5 border">
-                            <label for="c_code" class="text-black mb-3">Enter your coupon code if you have one</label>
+                            <label for="c_code" class="text-black mb-3">Enter your coupon code if you have
+                                one</label>
                             <div class="input-group w-75">
-                                <form action="index.php?page=checkout" method="post" style="display: flex;">
+                                <from action="index.php?page=checkout" method="post" style="display: flex;">
                                     <input type="text" class="form-control" id="c_code" placeholder="Coupon Code"
                                         aria-label="Coupon Code" aria-describedby="button-addon2" name="voucher">
                                     <div class="input-group-append">
                                         <input type="submit" value="APPLY" class="btn btn-primary btn-sm"
                                             name="btn_voucher">
                                     </div>
-                                </form>
-                                    <?php
+                                </from>
+                                <?php
                                     if(isset($error_message)){
                                         echo "$error_message";
                                     }
@@ -104,11 +114,13 @@ if(isset($_SESSION['user'])){
                                     <?=$html_checkoutproduct;?>
                                     <tr>
                                         <td class="text-black font-weight-bold"><strong>Cart total</strong></td>
-                                        <td class="text-black"><?=number_format(tongdonhang(),0,",",".")?><sup>đ</sup>
+                                        <td class="text-black">
+                                            <?=number_format(tongdonhang(),0,",",".")?><sup>đ</sup>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="text-black font-weight-bold"><strong>Voucher applied</strong></td>
+                                        <td class="text-black font-weight-bold"><strong>Voucher applied</strong>
+                                        </td>
                                         <td class="text-black">
                                             <?php 
                                             // Kiểm tra nếu tồn tại giá trị giảm giá từ session thì hiển thị nó
@@ -119,7 +131,8 @@ if(isset($_SESSION['user'])){
                                             }
                                             ?>
                                         </td>
-                                        <td class="text-black font-weight-bold"><a href="index.php?page=voucherdelete">Delete voucher</a></td>
+                                        <td class="text-black font-weight-bold"><a
+                                                href="index.php?page=voucherdelete">Delete voucher</a></td>
 
                                     </tr>
                                 </tbody>
@@ -127,31 +140,45 @@ if(isset($_SESSION['user'])){
                             <div class="col-md-12">
                                 <h2 class="h3 mb-3 text-black">Payment Method</h2>
                                 <div class="p-3 p-lg-5 border">
-                                    <form action="">
-                                        <label for="payment_method" class="text-black mb-3">Select your payment
-                                            method</label>
-                                        <select class="form-control" id="payment_method" name="payment_method">
-                                            <option value="cod">COD</option>
-                                            <option value="vnpay">VNPAY</option>
-                                        </select>
+                                    <label for="payment_method" class="text-black mb-3">Select your payment
+                                        method</label>
+                                    <form action="index.php?page=checkout" method="post">
+                                        <input type="hidden" name="payment_method" value="0">
+                                        <input type="hidden" name="idnguoidung" value="<?=$_SESSION['user']['id']?>">
+                                        <input type="submit" class="btn btn-primary btn-lg py-3 btn-block"
+                                            name="btn_place_order" value="COD">
                                     </form>
+                                    <?php
+                                    if(isset($thongbaocod)){
+                                        echo "$thongbaocod";
+                                    }
+                                    ;?>
+
+                                    <form action="index.php?page=checkout" method="post">
+                                        <input type="hidden" name="payment_method" value="1">
+                                        <input type="hidden" name="idnguoidung" value="<?=$_SESSION['user']['id']?>">
+                                        <input type="submit" class="btn btn-primary btn-lg py-3 btn-block"
+                                            name="redirect" value="VNPAY"
+                                            style="margin-top: 16px;background-color: #ed1c24;border: none;">
+                                    </form>
+                                    <?php
+                                    if(isset($thongbaovnpay)){
+                                        echo "$thongbaovnpay";
+                                    }
+                                    ;?>
+                                    </form>
+
                                 </div>
                             </div>
-
-
-                            <div class="form-group">
-                                <button class="btn btn-primary btn-lg py-3 btn-block"
-                                    onclick="window.location='thankyou.html'">Place Order</button>
-                            </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <!-- </form> -->
     </div>
+
 </div>
+
 
 <?php include_once "footer.php";?>

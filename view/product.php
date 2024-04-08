@@ -26,7 +26,7 @@ foreach ($productall as $item){
 $html_categoryinproduct="";
 foreach ($category as $item) {
   extract($item);
-  $link = 'index.php?page=product&trang='.$trang.'&idcat='.$id.'&orderby='.$orderby;
+  $link = 'index.php?page=product&trang='.$trang.'&idcat='.$id.'&orderby='.$orderby.'&kyw='.$kyw;
   $html_categoryinproduct.='<li class="mb-1"><a href="'.$link.'" class="d-flex"><span>'.$ten_danh_muc.'</span></a></li>';
 }
 ?>
@@ -62,8 +62,8 @@ foreach ($category as $item) {
                                         id="dropdownMenuReference" data-toggle="dropdown">Reference</button>
                                         <div class="dropdown-menu" name="filter" aria-labelledby="dropdownMenuReference">
                                             <a class="dropdown-item" href="index.php?page=product">Relevance</a>
-                                            <a class="dropdown-item" href="index.php?page=product&trang=<?=$trang?>&idcat=<?=$idcat?>&orderby=ASCPRICE">Price, low to high</a>
-                                            <a class="dropdown-item" href="index.php?page=product&trang=<?=$trang?>&idcat=<?=$idcat?>&orderby=DESCPRICE">Price, high to low</a>
+                                            <a class="dropdown-item" href="index.php?page=product&trang=<?=$trang?>&idcat=<?=$idcat?>&orderby=ASCPRICE&kyw=<?=$kyw?>">Price, low to high</a>
+                                            <a class="dropdown-item" href="index.php?page=product&trang=<?=$trang?>&idcat=<?=$idcat?>&orderby=DESCPRICE&kyw=<?=$kyw?>">Price, high to low</a>
                                         </div>
                             </div>
                         </div>

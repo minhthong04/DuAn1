@@ -4,6 +4,7 @@ foreach ($dssp_view as $item) {
   extract($item);
   $html_dssp_vew.='<div class="item">
                     <div class="block-4 text-center">
+                    <a class="block-2-item" href="index.php?page=productdetail&id='.$id.'">
                       <figure class="block-4-image">
                         <img src="uploads/'.$hinh_san_pham.'" alt="Image placeholder" class="img-fluid">
                       </figure>
@@ -20,6 +21,7 @@ foreach ($dssp_view as $item) {
                             <input type="hidden" name="gia_san_pham" value="'.$gia_san_pham.'">
                         </form>
                         </div>
+                        <a/>
                     </div>
                   </div>';     
 }

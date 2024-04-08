@@ -1,4 +1,38 @@
 <?php
+
+?>
+
+<?php
+if(isset($_SESSION['user']['giohang'])){
+    $mailContent = '';
+
+    // Duyệt qua mảng sản phẩm trong session "giohang"
+    foreach ($_SESSION['user']['giohang'] as $index => $product) {
+        $productName = $product['ten_san_pham'];
+        $quantity = $product['soluong'];
+        $totalPrice = number_format($product['tong_gia'],0,",",".");
+    
+        // Tạo chuỗi cho mỗi sản phẩm
+        $productInfo = ($index + 1) . ". $productName x $quantity = $totalPrice";
+    
+        // Thêm thông tin sản phẩm vào nội dung email
+        $mailContent .= $productInfo;
+    }
+}
+if(is_array($order_info)){
+    $paymentText="";
+    if($order_info['phuong_thuc_thanh_toan']== 0){
+        $paymentText="COD";
+    }elseif($order_info['phuong_thuc_thanh_toan']== 1){
+        $paymentText="VNPAY";
+    }else{
+        $paymentText = 'Other';
+    }
+}
+
+if(isset($_SESSION['user'])){
+    
+}
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -6,7 +40,7 @@ require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 //Create an instance; passing `true` enables exceptions
-if(isset($_POST['btn_login'])){
+if(isset($_POST['btn_place_order']) || isset($_POST['redirect'])) {
     $mail = new PHPMailer(true);
     
     try {
@@ -27,8 +61,29 @@ if(isset($_POST['btn_login'])){
     
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'Here is the subject';
-        $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+        $mail->Subject = 'YOUR ORDER AT LOPIE';
+        $mail->Body = '
+        Xác nhận đơn hàng của bạn<br><br>
+        Chào ' . $_SESSION['user']['ten_nguoi_dung'] . ',<br><br>
+        Chúng tôi xin chân thành cảm ơn bạn đã đặt hàng tại cửa hàng chúng tôi. Đơn hàng của bạn đã được xác nhận và đang được xử lý. Dưới đây là thông tin chi tiết về đơn hàng của bạn:<br><br>
+        - Mã Đơn Hàng: '.$order_info['id'].'<br>
+        - Ngày Đặt Hàng: '.$order_info['ngay_thanh_toan'].'<br>
+        - Phương Thức Thanh Toán: '.$paymentText.'<br><br>
+        Dưới đây là danh sách sản phẩm bạn đã đặt:
+        <br>
+        <br>
+        '.$mailContent.'<sup>đ</sup>
+        <br>
+        Tổng cộng: '.number_format(tongdonhang(),0,",",".").'<sup>đ</sup><br><br>
+        Thông tin vận chuyển:<br>
+        - Họ và tên: '.$_SESSION['user']['ten_nguoi_dung'].'<br>
+        - Địa chỉ: '.$_SESSION['user']['dia_chi'].'<br>
+        - Số điện thoại: '.$_SESSION['user']['so_dien_thoai'].'<br><br>
+        Nếu có bất kỳ câu hỏi hoặc thắc mắc nào, vui lòng liên hệ với chúng tôi qua email hoặc số điện thoại được cung cấp bên dưới.<br><br>
+        Chân thành,<br>
+        LOPIE';
+
+    
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     
         $mail->send();

@@ -32,6 +32,8 @@ if(isset($_SESSION['user'])){
     <link rel="stylesheet" href="view/layout/css/aos.css">
     <link rel="stylesheet" href="view/layout/css/style.css">
     <link rel="stylesheet" href="view/layout/css/login.css">
+    <link rel="stylesheet" href="view/layout/css/signup.css">
+    <link rel="stylesheet" href="view/layout/css/donhang_hoso.css">
 </head>
 
 <body>
@@ -41,10 +43,14 @@ if(isset($_SESSION['user'])){
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-                            <form action="" class="site-block-top-search" method="post">
+                            <form action="index.php" class="site-block-top-search" method="post">
+                                <!-- Sử dụng method="get" để dùng query string -->
+                                <input type="hidden" name="page" value="product">
+                                <!-- Thêm trường ẩn để truyền giá trị page -->
                                 <span class="icon icon-search2"></span>
                                 <input type="text" name="kyw" class="border-0" placeholder="Search">
-                                <button type="submit" name="btnsearch"
+                                <!-- Hiển thị giá trị của kyw nếu có -->
+                                <button type="submit"
                                     style="outline: none;border: none;background-color: #7971EA;color: #fff;padding: 5px 10px;border-radius: 3px;cursor: pointer;">Search</button>
                             </form>
                         </div>
@@ -56,7 +62,13 @@ if(isset($_SESSION['user'])){
                         <div class="col-6 col-md-4 order-3 order-md-3 text-right">
                             <div class="site-top-icons">
                                 <ul>
-                                    <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
+                                    <li><?php
+                                    if(isset($_SESSION['user']) && isset($_SESSION['user']['ten_nguoi_dung'])){
+                                        echo "Xin chào " . $_SESSION['user']['ten_nguoi_dung'] ."!!!";
+                                    } else {
+                                        echo "";
+                                    }                                    
+                                    ?></li>
                                     <li>
                                         <a href="index.php?page=viewcart" class="site-cart">
                                             <span class="icon icon-shopping_cart"></span>

@@ -1,0 +1,117 @@
+* {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    box-sizing: border-box;
+}
+
+.container-info{
+    max-width: 1140px;
+    margin: 80px auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 1.6rem;
+}
+
+.info-left {
+    flex: 0 0 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.info-left__link {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.info-right {
+    flex: 0 0 75%;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    appearance: none;
+}
+
+.form-group input[type="file"] {
+    border: none;
+    padding: 0;
+    background: none;
+}
+
+.form-group input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Trạng thái đơn hàng */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th,
+td {
+    padding: 4px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+th {
+    background-color: #f2f2f2;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.cancel-btn,
+.detail-btn {
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.detail-btn {
+    background-color: #007bff;
+}

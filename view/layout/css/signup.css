@@ -8,13 +8,13 @@ html {
     box-sizing: border-box;
 }
 
-.login-title{
+.signup-title{
     font-size: 4.8rem;
     text-align: center;
     margin-top: 32px;
 }
 
-.container-login-form{
+.container-signup-form{
     max-width: 800px;
     margin: 80px auto;
     border-left: 1px solid #CCCCCC;
@@ -23,22 +23,22 @@ html {
     border-radius: 5px;
 }
 
-.login-form{
+.signup-form{
     padding: 32px 32px 0px 32px;
 }
 
-.login-form__group{
+.signup-form__group{
     display: flex;
     flex-direction: column;
 }
 
-.login-form__name{
+.signup-form__name{
     font-size: 1.4rem;
     display: block;
     margin-bottom: 8px;
 }
 
-.login-form__input{
+.signup-form__input{
     flex: 1;
     min-height: 40px;
     border-radius: 5px;
@@ -46,11 +46,11 @@ html {
 
 }
 
-.login-form__control{
+.signup-form__control{
     display: flex;
 }
 
-.login-form__btn{
+.signup-form__btn{
     flex: 1;
     min-height: 40px;
     border-radius: 5px;
@@ -60,39 +60,39 @@ html {
     cursor: pointer;
 }
 
-.login-fom__socials{
+.signup-fom__socials{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
 
-.login-form__socials-title{
+.signup-form__socials-title{
     margin-top: 32px;
     color: #ccc;
 }
 
-.login-form__socials{
+.signup-form__socials{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
 
-.login-fom__socials--facebook{
+.signup-fom__socials--facebook{
     text-decoration: none;
     cursor: pointer;
 }
 
-.login-fom__socials--facebook:hover{
+.signup-fom__socials--facebook:hover{
     opacity: 0.7;
 }
 
-.login-fom__socials-group{
+.signup-fom__socials-group{
     margin-bottom: 24px;
 }
 
-.login-form-controls{
+.signup-form-controls{
     padding: 24px;
     background-color: #ccc;
     display: flex;
@@ -101,13 +101,13 @@ html {
     border-radius: 0px 0px 5px 5px;
 }
 
-.login-form-controls--cancel{
+.signup-form-controls--cancel{
     padding: 10px 55px;
     background-color: #F44336;
     border-radius: 5px;
 }
 
-.login-form-controls--login{
+.signup-form-controls--signup{
     padding: 10px 55px;
     background-color: #fff;
     border: 1px solid #7971EA;
