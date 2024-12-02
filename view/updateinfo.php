@@ -1,4 +1,4 @@
-<?php include_once "header.php";?>
+<?php include_once "header.php"; ?>
 
 <div class="container-info">
     <div class="info-left">
@@ -7,9 +7,9 @@
     </div>
     <div class="info-right">
         <form action="index.php?page=updateinfo" method="post" enctype="multipart/form-data">
-            <?php 
+            <?php
             // Kiểm tra xem session user có tồn tại không
-            if(isset($_SESSION['user'])) {
+            if (isset($_SESSION['user'])) {
                 // Truy cập thông tin của session user
                 $user = $_SESSION['user'];
 
@@ -60,4 +60,4 @@
     </div>
 </div>
 
-<?php include_once "footer.php";?>
+<?php include_once "footer.php"; ?>

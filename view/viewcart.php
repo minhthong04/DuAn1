@@ -1,12 +1,12 @@
-<?php include_once "header.php";?>
+<?php include_once "header.php"; ?>
 
 <?php
 
 $thongbaocart = ""; // Khởi tạo biến thông báo giỏ hàng rỗng
 $html_showcart = ""; // Khởi tạo biến hiển thị giỏ hàng
-if(isset($_SESSION['user']['giohang']) && !empty($_SESSION['user']['giohang'])){
-    $i=0;
-    foreach($_SESSION['user']['giohang'] as $item) {
+if (isset($_SESSION['user']['giohang']) && !empty($_SESSION['user']['giohang'])) {
+    $i = 0;
+    foreach ($_SESSION['user']['giohang'] as $item) {
         extract($item);
         $gia_san_pham_int = intval($gia_san_pham); // Chuyển giá sản phẩm thành số nguyên
         $soluong_int = intval($soluong); // Chuyển số lượng thành số nguyên
@@ -21,23 +21,26 @@ if(isset($_SESSION['user']['giohang']) && !empty($_SESSION['user']['giohang'])){
         </td>
         <td class="product-price js-product-price">' . $gia_san_pham . '</td>
         <td>
-            <div class="input-group mb-3" style="max-width: 120px;">        
-                <a href="index.php?page=decrease&i=' . $i . '">
-                    <button class="btn btn-outline-primary" type="button">&minus;</button>
-                </a>
-                <div class="form-control text-center quantity">' . $soluong_int . '</div>
-                <a href="index.php?page=increase&i=' . $i . '">
-                    <button class="btn btn-outline-primary" type="button">&plus;</button>
-                </a>
-            </div>
+        <div class="input-group mb-3">
+        <div class="input-group-btn">
+            <a href="index.php?page=decrease&i='.$i.'">
+                <button class="btn btn-outline-primary" type="button">&minus;</button>
+            </a>
+        </div>
+        <div class="quantity form-control text-center">'.$soluong_int.'</div>
+        <div class="input-group-btn">
+            <a href="index.php?page=increase&i='.$i.'">
+                <button class="btn btn-outline-primary" type="button">&plus;</button>
+            </a>
+        </div>
+    </div>
         </td>
         <td class="total">' . $soluong_int * $gia_san_pham_int . '</td>
         <td><a href="' . $linkdelete . '" class="btn btn-primary btn-sm">X</a></td>
     </tr>';
 
-// Tiếp tục vòng lặp bằng cách tăng giá trị của $i
-$i++;
-
+        // Tiếp tục vòng lặp bằng cách tăng giá trị của $i
+        $i++;
     }
 } else {
     // Hiển thị thông báo giỏ hàng rỗng
@@ -46,33 +49,62 @@ $i++;
                       </tr>";
 }
 
-
-$html_viewcarttocheckout='';
-if(!empty($_SESSION['user']['giohang'])){
-    $html_viewcarttocheckout='<a href="index.php?page=checkout">
+if (empty($_SESSION['user']['giohang'])) {
+    $html_viewcarttocheckout = '<a href="#>
                                 <div class="col-md-12">
-                                    <button class="btn btn-primary btn-lg py-3 btn-block">Proceed To Checkout</button>
+                                    <button class="btn btn-primary btn-lg py-3 btn-block">Thanh toán giỏ hàng</button>
+                                </div>
+                                <p style="color: red;font-weight: bold;font-size: 12px;">Bạn phải mua ít nhất 1 sản phẩm để có thể thanh toán!</p>
+                            </a>';
+} elseif (empty($_SESSION['user']['email']) && empty($_SESSION['user']['dia_chi']) && empty($_SESSION['user']['so_dien_thoai'])) {
+    $html_viewcarttocheckout = '<a href="#">
+                                <div class="col-md-12">
+                                    <button class="btn btn-primary btn-lg py-3 btn-block">Thanh toán giỏ hàng</button>
+                                </div>
+                                <p style="color: red;font-weight: bold;font-size: 12px;text-align: center;">Bạn phải cập nhật Email, Số điện thoại và địa chỉ giao hàng mới có thể thanh toán!</p>
+                            </a>';
+} else {
+    $html_viewcarttocheckout = '<a href="index.php?page=checkout">
+                                <div class="col-md-12">
+                                    <button class="btn btn-primary btn-lg py-3 btn-block" >Thanh toán giỏ hàng</button>
                                 </div>
                             </a>';
-}else{
-    $html_viewcarttocheckout='<a href="#">
-                                <div class="col-md-12">
-                                    <button class="btn btn-primary btn-lg py-3 btn-block">Proceed To Checkout</button>
-                                </div>
-                            </a>
-                            <p style="color: red;font-weight: bold;font-size: 12px;">Bạn phải mua ít nhất 1 sản phẩm để có thể thanh toán</p>';
 }
 
 ?>
 
 
+<style>
 
+    /* Custom CSS for quantity input */
+.input-group {
+    max-width: 120px;
+    margin: 0 auto;
+}
+
+.input-group-btn {
+    width: 33.333%;
+    padding: 0;
+}
+
+.quantity {
+    text-align: center;
+    width: 33.333%;
+    border-left: 0;
+    border-right: 0;
+}
+
+.quantity-input {
+    width: 33.333%;
+    padding-left: 0;
+}
+
+</style>
 
 <div class="bg-light py-3">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 mb-0"><a href="index.php">Home</a> <span class="mx-2 mb-0">/</span> <strong
-                    class="text-black">Cart</strong></div>
+            <div class="col-md-12 mb-0"><a href="index.php">Trang chủ</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Giỏ hàng</strong></div>
         </div>
     </div>
 </div>
@@ -85,17 +117,17 @@ if(!empty($_SESSION['user']['giohang'])){
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th class="product-thumbnail">Image</th>
-                                <th class="product-name">Product</th>
-                                <th class="product-price">Price</th>
-                                <th class="product-quantity">Quantity</th>
-                                <th class="product-total">Total</th>
-                                <th class="product-remove">Remove</th>
+                                <th class="product-thumbnail">Hình ảnh</th>
+                                <th class="product-name">Tên sản phẩm</th>
+                                <th class="product-price">Giá sản phẩm</th>
+                                <th class="product-quantity">Số lượng</th>
+                                <th class="product-total">Tổng giá</th>
+                                <th class="product-remove">Xóa</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?=$thongbaocart;?>
-                            <?=$html_showcart;?>
+                            <?= $thongbaocart; ?>
+                            <?= $html_showcart; ?>
                         </tbody>
                     </table>
                 </div>
@@ -106,7 +138,7 @@ if(!empty($_SESSION['user']['giohang'])){
             <div class="col-md-6">
                 <div class="row mb-5">
                     <div class="col-md-12">
-                        <button class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</button>
+                        <button class="btn btn-outline-primary btn-sm btn-block">Tiếp tục mua sắm</button>
                     </div>
                 </div>
 
@@ -116,28 +148,20 @@ if(!empty($_SESSION['user']['giohang'])){
                     <div class="col-md-7">
                         <div class="row">
                             <div class="col-md-12 text-right border-bottom mb-5">
-                                <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <span class="text-black">Subtotal</span>
-                            </div>
-                            <div class="col-md-6 text-right">
-                                <strong class="text-black"><?=number_format(tongdonhang(),0,",",".")?></strong>
+                                <h3 class="text-black h4 text-uppercase">Tổng giá đơn hàng</h3>
                             </div>
                         </div>
                         <div class="row mb-5">
                             <div class="col-md-6">
-                                <span class="text-black">Total</span>
+                                <span class="text-black">Tổng giá sản phẩm</span>
                             </div>
                             <div class="col-md-6 text-right">
-                                <strong class="text-black"><?=number_format(tongdonhang(),0,",",".")?></strong>
+                                <strong class="text-black"><?= number_format(tongdonhang(), 0, ",", ".") ?></strong>
                             </div>
                         </div>
 
-                        <div class="row">
-                                    <?=$html_viewcarttocheckout?>
+                        <div class="row" style="justify-content:center;">
+                            <?= $html_viewcarttocheckout ?>
                         </div>
                     </div>
                 </div>
@@ -146,4 +170,4 @@ if(!empty($_SESSION['user']['giohang'])){
     </div>
 </div>
 
-<?php include_once "footer.php";?>
+<?php include_once "footer.php"; ?>

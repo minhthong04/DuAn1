@@ -8,7 +8,7 @@ html {
     box-sizing: border-box;
 }
 
-.container-info{
+.container-info {
     max-width: 1140px;
     margin: 80px auto;
     display: flex;
@@ -90,18 +90,22 @@ table {
     width: 100%;
     border-collapse: collapse;
 }
+
 th,
 td {
     padding: 4px;
     border: 1px solid #ddd;
     text-align: center;
 }
+
 th {
     background-color: #f2f2f2;
 }
+
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
+
 .cancel-btn,
 .detail-btn {
     background-color: #ff6b6b;
@@ -114,4 +118,37 @@ tr:nth-child(even) {
 
 .detail-btn {
     background-color: #007bff;
+}
+
+
+@media screen and (max-width: 768px) {
+    .container-info {
+        flex-direction: column;
+
+        margin: 20px auto;
+
+    }
+
+    .info-left,
+    .info-right {
+        flex: 1 1 100%;
+
+    }
+
+    .info-left {
+        padding: 0;
+
+    }
+
+    .info-left__link {
+        margin-bottom: 20px;
+
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+
+    }
+
+
 }

@@ -1,4 +1,4 @@
-<?php include_once "header.php";?>
+<?php include_once "header.php"; ?>
 
 <div class="bg-light py-3">
     <div class="container">
@@ -15,22 +15,22 @@
                 <div class="block-16">
                     <figure>
                         <img src="view/layout/images/blog_1.jpg" alt="Image placeholder" class="img-fluid rounded">
-                        <a href="https://vimeo.com/channels/staffpicks/93951774" class="play-button popup-vimeo"><span
-                                class="ion-md-play"></span></a>
                     </figure>
                 </div>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-5">
                 <div class="site-section-heading pt-3 mb-4">
-                    <h2 class="text-black">How We Started</h2>
+                    <h2 class="text-black">Làm thế nào mà chúng tôi bắt đầu</h2>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius repellat, dicta at laboriosam, nemo
-                    exercitationem itaque eveniet architecto cumque, deleniti commodi molestias repellendus quos sequi
-                    hic fugiat asperiores illum. Atque, in, fuga excepturi corrupti error corporis aliquam unde nostrum
-                    quas.</p>
-                <p>Accusantium dolor ratione maiores est deleniti nihil? Dignissimos est, sunt nulla illum autem in,
-                    quibusdam cumque recusandae, laudantium minima repellendus.</p>
+                <p>Website thương hiệu thời trang Lopie. là chủ đề phát triển dự án 1 của nhóm chúng em. Nhóm phát triển
+                    dự án bằng những kiến thức đã học được trong những học kì trước sử dụng các tính năng của HTML, CSS,
+                    JavaScript, PHP để phát triển ra một website hoàn thiện.
+                    Mục tiêu của việc làm website bán hàng trực tuyến là tạo ra trải nghiệm mua sắm thuận tiện, cung cấp
+                    sản phẩm đa dạng và chất lượng, tối ưu hóa trang web và tăng khả năng tìm thấy, xây dựng lòng tin và
+                    tạo niềm tin cho khách hàng. Tối ưu hóa quy trình thanh toán và giao hàng, tạo tương tác và hỗ trợ
+                    khách hàng, và tăng cường doanh số bán hàng và phát triển thị trường, lợi đụng tốt khả năng
+                    phát triển công nghệ thông tin hiện nay.</p>
             </div>
         </div>
     </div>
@@ -39,7 +39,7 @@
     <div class="container">
         <div class="row justify-content-center mb-5">
             <div class="col-md-7 site-section-heading text-center pt-4">
-                <h2>The Team</h2>
+                <h2>Đội ngũ</h2>
             </div>
         </div>
         <div class="row">
@@ -47,13 +47,9 @@
                 <div class="block-38 text-center">
                     <div class="block-38-img">
                         <div class="block-38-header">
-                            <img src="view/layout/images/person_1.jpg" alt="Image placeholder" class="mb-4">
-                            <h3 class="block-38-heading h4">Elizabeth Graham</h3>
-                            <p class="block-38-subheading">CEO/Co-Founder</p>
-                        </div>
-                        <div class="block-38-body">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit
-                                distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
+                            <img src="uploads/Huy.jpg" alt="Image placeholder" class="mb-4">
+                            <h3 class="block-38-heading h4">Trần Đức Huy</h3>
+                            <p class="block-38-subheading">PS29107</p>
                         </div>
                     </div>
                 </div>
@@ -62,13 +58,9 @@
                 <div class="block-38 text-center">
                     <div class="block-38-img">
                         <div class="block-38-header">
-                            <img src="view/layout/images/person_2.jpg" alt="Image placeholder" class="mb-4">
-                            <h3 class="block-38-heading h4">Jennifer Greive</h3>
-                            <p class="block-38-subheading">Co-Founder</p>
-                        </div>
-                        <div class="block-38-body">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit
-                                distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
+                            <img src="uploads/thong.png" alt="Image placeholder" class="mb-4">
+                            <h3 class="block-38-heading h4">Nguyễn Minh Thông</h3>
+                            <p class="block-38-subheading">PS29249</p>
                         </div>
                     </div>
                 </div>
@@ -77,13 +69,9 @@
                 <div class="block-38 text-center">
                     <div class="block-38-img">
                         <div class="block-38-header">
-                            <img src="view/layout/images/person_3.jpg" alt="Image placeholder" class="mb-4">
-                            <h3 class="block-38-heading h4">Patrick Marx</h3>
-                            <p class="block-38-subheading">Marketing</p>
-                        </div>
-                        <div class="block-38-body">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit
-                                distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
+                            <img src="uploads/phuc.jfif" alt="Image placeholder" class="mb-4">
+                            <h3 class="block-38-heading h4">Nguyễn Trọng Phúc</h3>
+                            <p class="block-38-subheading">PS27431</p>
                         </div>
                     </div>
                 </div>
@@ -92,13 +80,9 @@
                 <div class="block-38 text-center">
                     <div class="block-38-img">
                         <div class="block-38-header">
-                            <img src="view/layout/images/person_4.jpg" alt="Image placeholder" class="mb-4">
-                            <h3 class="block-38-heading h4">Mike Coolbert</h3>
-                            <p class="block-38-subheading">Sales Manager</p>
-                        </div>
-                        <div class="block-38-body">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit
-                                distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
+                            <img src="uploads/nguyen.jpg" alt="Image placeholder" class="mb-4">
+                            <h3 class="block-38-heading h4">Dương Trọng Nguyễn</h3>
+                            <p class="block-38-subheading">PS32547</p>
                         </div>
                     </div>
                 </div>
@@ -106,7 +90,7 @@
         </div>
     </div>
 </div>
-<div class="site-section site-section-sm site-blocks-1 border-0" data-aos="fade">
+<div class="site-section site-section-sm site-blocks-1">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="">
@@ -114,9 +98,9 @@
                     <span class="icon-truck"></span>
                 </div>
                 <div class="text">
-                    <h2 class="text-uppercase">Free Shipping</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer
-                        accumsan tincidunt fringilla.</p>
+                    <h2 class="text-uppercase">Miễn phí giao hàng</h2>
+                    <p>Miễn phí giao hàng với các tỉnh trên Việt Nam, và với những khách hàng lần đầu trải nghiệm mua
+                        hàng.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
@@ -124,9 +108,9 @@
                     <span class="icon-refresh2"></span>
                 </div>
                 <div class="text">
-                    <h2 class="text-uppercase">Free Returns</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer
-                        accumsan tincidunt fringilla.</p>
+                    <h2 class="text-uppercase">Miễn phí hoàn trả</h2>
+                    <p>Đối với khách hàng mặt không vừa hoặc chọn sai số lượng chúng tôi có thể hoàn trả cho bạn hoàn
+                        toàn miễn phí.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
@@ -134,13 +118,13 @@
                     <span class="icon-help"></span>
                 </div>
                 <div class="text">
-                    <h2 class="text-uppercase">Customer Support</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer
-                        accumsan tincidunt fringilla.</p>
+                    <h2 class="text-uppercase">Nhân viên hỗ trợ</h2>
+                    <p>Chúng tôi có đội ngũ nhân viên hỗ trợ nhiệt tình giúp bạn có thể chọn đúng size các món đồ bạn
+                        yêu thích.</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<?php include_once "footer.php";?>
+<?php include_once "footer.php"; ?>

@@ -1,24 +1,24 @@
 <?php
-$html_orderdetail='';
-$i=1;
-if(isset($orderdetail)){
+$html_orderdetail = '';
+$i = 1;
+if (isset($orderdetail)) {
     foreach ($orderdetail as $item) {
         extract($item);
-        $html_orderdetail.='<tr>
-                                <td>'.$i.'</td>
-                                <td>'.$ten_san_pham.'</td>
-                                <td>'.$don_gia.'</td>
-                                <td>'.$so_luong.'</td>
-                                <td>'.$ma_don_hang.'</td>
+        $html_orderdetail .= '<tr>
+                                <td>' . $i . '</td>
+                                <td>' . $ten_san_pham . '</td>
+                                <td>' . $don_gia . '</td>
+                                <td>' . $so_luong . '</td>
+                                <td>' . $ma_don_hang . '</td>
                             </tr>';
 
-                    $i++;
+        $i++;
     }
 }
 
 ?>
 
-<?php include_once "header.php";?>
+<?php include_once "header.php"; ?>
 
 <div class="container-info">
     <div class="info-left">
@@ -38,10 +38,10 @@ if(isset($orderdetail)){
                 </tr>
             </thead>
             <tbody>
-                <?=$html_orderdetail;?>
+                <?= $html_orderdetail; ?>
             </tbody>
         </table>
     </div>
 </div>
 
-<?php include_once "footer.php";?>
+<?php include_once "footer.php"; ?>

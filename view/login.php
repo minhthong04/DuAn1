@@ -1,4 +1,4 @@
-<?php include_once "header.php";?>
+<?php include_once "header.php"; ?>
 <div class="container-login-form">
     <h1 class="login-title">LOGIN</h1>
     <div class="login-form">
@@ -8,16 +8,16 @@
                 <input type="text" value="" class="login-form__input" name="tai_khoan">
             </div>
             <?php
-            if(isset($thongbaotaikhoan)){
+            if (isset($thongbaotaikhoan)) {
                 echo "$thongbaotaikhoan";
             }
             ?>
-            <div class="login-form__group">
+            <div class="login-form__group" style="margin-bottom: 16px;">
                 <label for="" class="login-form__name">Password</label>
                 <input type="password" value="" class="login-form__input" name="mat_khau">
             </div>
             <?php
-            if(isset($thongbaomatkhau)){
+            if (isset($thongbaomatkhau)) {
                 echo "$thongbaomatkhau";
             }
             ?>
@@ -50,4 +50,4 @@
 
 
 
-<?php include_once "footer.php";?>
+<?php include_once "footer.php"; ?>
